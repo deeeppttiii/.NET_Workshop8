@@ -1,10 +1,54 @@
 ﻿@page "/products"
 @layout Components.Layout.ProductLayout
+@using Workshop8.Models
 
 <h2>Products</h2>
 
-<ul>
-    <li>Laptop</li>
-    <li>Smartphone</li>
-    <li>Headphones</li>
-</ul>
+<div class="product-grid">
+    @foreach (var item in ProductList)
+    {
+        <ProductCard Product="item" />
+    }
+</div>
+
+@code 
+{
+    List<Product> ProductList = new()
+    {
+        new Product
+        {
+            Name = "Laptop",
+            ImageUrl = "images/Laptop.jpg",
+            Price = 1200,
+            Likes = 120
+        },
+        new Product
+        {
+            Name = "Smartphone",
+            ImageUrl = "images/Phone.jpg",
+            Price = 800,
+            Likes = 98
+        },
+        new Product
+        {
+            Name = "Headphones",
+            ImageUrl = "images/Headphone.jpg",
+            Price = 150,
+            Likes = 75
+        },
+        new Product
+        {
+            Name = "Smart Watch",
+            ImageUrl = "images/watch.jpg",
+            Price = 250,
+            Likes = 65
+        },
+        new Product
+        {
+            Name = "Keyboard",
+            ImageUrl = "images/Keyboard.jpg",
+            Price = 90,
+            Likes = 40
+        }
+    };
+}

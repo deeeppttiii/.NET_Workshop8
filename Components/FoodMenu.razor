@@ -1,0 +1,42 @@
+﻿<h3>Food Menu</h3>
+
+<div class="menu-grid">
+    @foreach (var item in FoodItems)
+    {
+        <ItemCard 
+            Name="@item.Name"
+            Ingredients="@item.Ingredients"
+            Price="@item.Price" />
+    }
+</div>
+
+@code {
+    List<FoodItem> FoodItems = new()
+    {
+        new FoodItem
+        {
+            Name = "Pizza",
+            Ingredients = "Cheese, Tomato, Dough",
+            Price = 12.99m
+        },
+        new FoodItem
+        {
+            Name = "Burger",
+            Ingredients = "Bun, Beef Patty, Lettuce",
+            Price = 9.99m
+        },
+        new FoodItem
+        {
+            Name = "Pasta",
+            Ingredients = "Pasta, Cream, Chicken",
+            Price = 11.50m
+        }
+    };
+
+    class FoodItem
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Ingredients { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+    }
+}
